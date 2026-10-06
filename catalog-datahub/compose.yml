@@ -1,0 +1,11 @@
+# Source database to be cataloged. DataHub itself is started with the official quickstart (see README).
+services:
+  orders-db:
+    image: postgres:16.4
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_USER: orders
+      POSTGRES_PASSWORD: ${ORDERS_DB_PASSWORD:-change-me}
+      POSTGRES_DB: orders
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro

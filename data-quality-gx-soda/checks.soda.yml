@@ -1,0 +1,8 @@
+# Equivalent Soda Core checks (SodaCL). Not executed here: needs soda-core and a data source.
+checks for orders:
+  - row_count > 0
+  - missing_count(customer_id) = 0
+  - duplicate_count(order_id) = 0
+  - min(amount) >= 0
+  - invalid_count(status) = 0:
+      valid values: [NEW, PAID, SHIPPED]

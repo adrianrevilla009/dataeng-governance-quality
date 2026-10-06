@@ -1,0 +1,27 @@
+# Marquez (OpenLineage backend). Needs Docker; not run in the build session.
+services:
+  db:
+    image: postgres:14.13
+    environment:
+      POSTGRES_USER: marquez
+      POSTGRES_PASSWORD: marquez
+      POSTGRES_DB: marquez
+  api:
+    image: marquezproject/marquez:0.49.0
+    depends_on: [db]
+    ports: ["5000:5000", "5001:5001"]
+    environment:
+      MARQUEZ_PORT: 5000
+      MARQUEZ_ADMIN_PORT: 5001
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: marquez
+      POSTGRES_USER: marquez
+      POSTGRES_PASSWORD: marquez
+  web:
+    image: marquezproject/marquez-web:0.49.0
+    depends_on: [api]
+    ports: ["3000:3000"]
+    environment:
+      MARQUEZ_HOST: api
+      MARQUEZ_PORT: 5000

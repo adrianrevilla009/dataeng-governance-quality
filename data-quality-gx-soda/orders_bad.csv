@@ -1,0 +1,3 @@
+order_id,customer_id,amount,status
+1,10,25.50,PAID
+1,,-5,UNKNOWN

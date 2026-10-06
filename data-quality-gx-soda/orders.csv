@@ -1,0 +1,4 @@
+order_id,customer_id,amount,status
+1,10,25.50,PAID
+2,11,12.00,NEW
+3,10,99.99,SHIPPED

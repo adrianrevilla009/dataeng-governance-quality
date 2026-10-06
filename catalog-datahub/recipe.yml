@@ -1,0 +1,12 @@
+# DataHub ingestion recipe: catalogs the sample Postgres orders database.
+source:
+  type: postgres
+  config:
+    host_port: localhost:5432
+    database: orders
+    username: orders
+    password: ${ORDERS_DB_PASSWORD}
+sink:
+  type: datahub-rest
+  config:
+    server: http://localhost:8080

@@ -1,0 +1,10 @@
+{
+  "dataset": "orders",
+  "checks": [
+    {"type": "row_count_min", "value": 1},
+    {"type": "not_null", "column": "customer_id"},
+    {"type": "unique", "column": "order_id"},
+    {"type": "min", "column": "amount", "value": 0},
+    {"type": "accepted_values", "column": "status", "values": ["NEW", "PAID", "SHIPPED"]}
+  ]
+}

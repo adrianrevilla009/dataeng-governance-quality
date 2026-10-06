@@ -1,0 +1,12 @@
+{
+  "name": "orders",
+  "version": "1.2.0",
+  "owner": "sales-team",
+  "schema": {
+    "order_id": {"type": "int", "required": true},
+    "customer_id": {"type": "int", "required": true},
+    "amount": {"type": "float", "required": true},
+    "status": {"type": "str", "required": true}
+  },
+  "sla": {"freshness_hours": 24, "min_rows": 1}
+}
